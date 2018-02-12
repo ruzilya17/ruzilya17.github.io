@@ -1,1 +1,94 @@
-Вот тут
+<html>
+	<head>
+		<title>Калькулятор</title>
+	</head>
+<body>
+<div class="container-fluid">
+	<h1>Калькулятор</h1>
+	<div class="row">
+		<div class="col-md-4" style="background-color: #ff9999">Left</div>
+		<div class="col-md-4" style="background-color: #99CCFF">Middle</div>
+		<div class="col-md-4" style="background-color: #00CC99">Right</div>
+	</div>
+
+<table border="1">
+	<tr>
+		<td colspan="5">
+		<input type="text" value="0" id="ekran"></td>
+	</tr>
+	<tr>
+		<td>MC</td>
+		<td>MR</td>
+		<td>MS</td>
+		<td>M+</td>
+		<td>M-</td>
+	</tr>
+	<tr>
+		<td><--</td>
+		<td>CE</td>
+		<td>C</td>
+		<td>+-</td>
+		<td>sqrt</td>
+	</tr>
+	<tr>
+		<td>
+		<input type="button" value="7" onclick="numX(7)"></td>
+		<td>
+		<input type="button" value="8" onclick="numX(8)"></td>
+		<td>
+		<input type="button" value="9" onclick="numX(9)"></td>
+		<td>
+		<input type="button" value="/"></td>
+		<td>
+		<input type="button" value="%"></td>
+	</tr>
+	<tr>
+		<td>
+		<input type="button" value="4" onclick="numX(4)"></td>
+		<td>
+		<input type="button" value="5" onclick="numX(5)"></td>
+		<td>
+		<input type="button" value="6" onclick="numX(6)"></td>
+		<td>
+		<input type="button" value="*"></td>
+		<td>
+		<input type="button" value="1/x"></td>
+	</tr>
+	<tr>
+		<td>
+		<input type="button" value="1" onclick="numX(1)"></td>
+		<td>
+		<input type="button" value="2" onclick="numX(2)"></td>
+		<td>
+		<input type="button" value="3" onclick="numX(3)"></td>
+		<td>
+		<input type="button" value="-"></td>
+		<td rowspan="2">
+		<input type="button" value="=" onclick="a1('Равно')"></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		<input type="button" value="0" onclick="numX(0)"></td>
+		<td>
+		<input type="button" value=","></td>
+		<td>
+		<input type="button" value="+" onclick="plus()"></td>
+	</tr>
+</table>
+<script>
+	var A=0;
+	var B;
+	var nujnoSohranit;
+	function a1(x){
+		console.log(x);
+	}
+	function numX(num){
+		document.getElementById("ekran").value=''+num+'';
+	}
+	function plus(){
+		A=A+Number(document.getElementById("ekran").value);
+		console.log(A);
+	}
+</script>
+</body>
+</html>
