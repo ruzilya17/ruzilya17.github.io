@@ -5,9 +5,12 @@
 </head>
 <body>
   <script>
-    var age=prompt('сколько вам лет?', '');
-   var access=age>14? true:false;
-    alert(access);
+    var age=prompt('сколько вам лет?', 18);
+   var message=(age<3)? 'какой хороший возраст':
+   (age<18)? 'Привет':
+   (age<100)? 'Здравстуй':
+'Люблю';
+    alert(message);
   </script>
 </body>
 </html>
