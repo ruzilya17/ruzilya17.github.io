@@ -6,8 +6,11 @@
 <body>
   <script>
     var years=prompt('В каком году вы родились', '');
-    if(years!=2011){
-    alert('А вот и не правильно');
+    if(years>2011){
+    alert('Это слишком поздно');
+    }
+    else if(years<2011){
+      alert('это слишком рано');
     }else{
     alert('Правильно');
     }
