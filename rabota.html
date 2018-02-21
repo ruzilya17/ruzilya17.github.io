@@ -5,13 +5,12 @@
 </head>
 <body>
   <script>
-    var from='Маша';
- function showMessage(from, text){
- from='*'+from+'*';
-   alert(from+ ':' +text);
- }
-    showMessage(from, 'Привет');
-    alert(from);
+function showMessage(from, text){
+text===undefined;
+ text='Текст не передан';
+  alert(text+':' +from);
+}
+    showMessage('маша', 'Привет');
   </script>
 </body>
 </html>
