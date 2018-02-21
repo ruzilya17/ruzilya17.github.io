@@ -5,13 +5,19 @@
 </head>
 <body>
   <script>
-function showMessage(from, text){
-if(text===undefined){
- text='Текст не передан'};
-  alert(text+':' +from);
+function checkAge(){
+if(age>18){
+return true;
+}else{
+return confirm('Родители разрешили?');
 }
-    showMessage('маша', 'Привет');
-    showMessage('маша')
+  var age=prompt('ваш возраст', '')
+ if checkAge(age){
+ alert('доступ разрешен');
+ }else{
+ alert('Отказ');
+ }
+}
   </script>
 </body>
 </html>
