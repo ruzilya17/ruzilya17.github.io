@@ -5,14 +5,12 @@
 </head>
 <body>
   <script>
-   var userName='Вася';
-    function count(){
-    userName='Петя';
-      var message='Меня зовут '+ userName;
-      alert(message);
-    }
-    count();
-    alert(userName);
+    var from='Маша';
+ function showMessage(from, text){
+ from='*'+from+'*';
+   alert(from+ ':' +text);
+ }
+    showmessage(from, 'Привет');
   </script>
 </body>
 </html>
