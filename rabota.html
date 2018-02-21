@@ -5,12 +5,14 @@
 </head>
 <body>
   <script>
-    var x=prompt('Введите x', '');
-    var n=prompt('Введите n', '');
-function pow(x,n){
-if(n>1){
-  return x*n;
-}
+   var userName='Вася';
+    function count(){
+    userName='Петя';
+      var message='Меня зовут '+ userName;
+      alert(message);
+    }
+    count();
+    alert(userName);
   </script>
 </body>
 </html>
