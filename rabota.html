@@ -6,8 +6,8 @@
 <body>
   <script>
 function showMessage(from, text){
-text===undefined;
- text='Текст не передан';
+if(text===undefined){
+ text='Текст не передан'};
   alert(text+':' +from);
 }
     showMessage('маша', 'Привет');
