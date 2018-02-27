@@ -5,14 +5,14 @@
 </head>
 <body>
   <script>
-	function pow(x,n){
-		if(n!=1){
-		return x*pow(x, n-1);
-		}else {
-		return x;
+	function simTo(n){
+		if(n>1){
+			return n+sumTo(n-1);
+		}else{
+			return n;
 		}
 	}
-	  alert(pow(2,3));
+	  alert(sumTo(3));
   </script>
 </body>
 </html>
