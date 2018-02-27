@@ -5,14 +5,14 @@
 </head>
 <body>
   <script>
-	function sumTo(n){
+	function factorial(n){
 		if(n>1){
-			return n+sumTo(n-1);
-		}else{
-			return n;
-		}
+			return n*factorial(n-1);
+	}else{
+	return 1;
 	}
-	  alert(sumTo(100));
+	}
+	  alert(factorial(5));
   </script>
 </body>
 </html>
