@@ -5,9 +5,14 @@
 </head>
 <body>
   <script>
-	var addition=new Function('a,b', 'return a+b');
-	  var result=addition(1,2);
-	 	alert(result);
+	function pow(x,n){
+		if(n!=1){
+		return x*pow(x, n-1);
+		}else {
+		return x;
+		}
+	}
+	  alert(2,3);
   </script>
 </body>
 </html>
