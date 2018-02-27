@@ -5,17 +5,9 @@
 </head>
 <body>
   <script>
-	function ask(question, yes,no){
-		if(confirm(question)) yes() 
-		else no();
-	}
-	  function showOk(){
-	  alert('вы согласились');
-	  }
-	  function showCansel(){
-	  alert('вы отменили');
-	  }
-	  ask('Вы согласны?', showOk, showCansel);
+	var addition=new Function('a,b', 'return a+b');
+	  var result=addition(1,2);
+	 	alert(result);
   </script>
 </body>
 </html>
