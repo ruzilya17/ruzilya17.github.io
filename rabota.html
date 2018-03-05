@@ -1,18 +1,30 @@
 <html>
 <head>
-<meta charset="utf-8">
-<title>урок 12</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="C:\Users\User\Documents\Rabota\style.css">
+<title>Строка</title>
 </head>
 <body>
-  <script>
-	 var arr=['Мой ', 'коллега ', 'Зак ', 'посоветовал ', 'мне ', 'запускать ', 'утилиту ', 'sync ', 'от ', 'sysinternals ', 'после ', 
-		  'окончания ', 'работы ', 'компоновщика. ', 'Я ', 'сначала ', 'отказался ', '—', 'запуск ', 'sync ', 'весьма ',    
-		  'ресурсоёмок ', 'и ', 'требует ', 'прав ', 'администратора, ', 'но ', 'в ', 'конце ', 'концов ', 'я ', 'сдался ', 'и ', 
-		  'решил ', 'провести ', 'этот ', 'тест. ','За ', 'выходные ', 'я ', 'собрал ', 'Хром ', 'с ', 'нуля ', 'более ', 1000, 
-		  ' раз, ', 'с ', 'правами ', 'администратора, ','в ', 'трёх ', 'разных ', 'вариантах'];
-		arr.reverse();
-	  alert(arr);
-		
-  </script>
-</body>
+	<textarea rows='10' cols='45' id='text1'>Привет Рузиля</textarea>
+<input type="button" onclick="buttonHandler()" value="Получить">
+			<textarea rows='10' cols='45' id='text2'></textarea>
+					
+					<script type="text/javascript">
+					function buttonHandler(){
+						var ta1=document.getElementById('text1');
+						var ta2=document.getElementById('text2');
+						ta2.value=reverseString(ta1.value);
+					}
+					function reverseString(originalStr){
+						var arr=originalStr.split(' ');
+						var res=[];
+						for (var i = 0; i<arr.length; i++){
+						res.push(arr[i].split('').reverse().join(''));}
+						res.reverse();
+						return res.join(' ');
+					}
+					
+					</script>
+					
+			</body>
 </html>
