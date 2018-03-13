@@ -3,8 +3,8 @@
 	<meta charset="UTF-8">
 	<title>шахматная доска</title>
 	</head>
-		<body>
-			<input type="button" onClick="drawTable()" value="Создать доску">
+		<body onLoad="drawTable()">
+			
 			<script>
 				function drawTable(){
 					var element=document.createElement("table"); //создаем таблицу с тегом table
@@ -21,7 +21,7 @@
 						}
 					
 					}
-					document.button.appendChild(element);
+					document.body.appendChild(element);
 				}
 			</script>
 		</body>
