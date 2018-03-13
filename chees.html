@@ -13,7 +13,6 @@
 						element.setAttribute("border", "1"); // задаем атрибут border(граница) co значением 1
 						element.setAttribute("id", "tab"); // указываем id чтоб в дальнейшем могли обратиться к таблице
 						element.addEventListener("click", onClickCell, false);
-						var colorCount=0;
 						for (var i=0; i<8; i++){
 							var row=element.insertRow(i);
 							for (var j=0; j<8; j++){
@@ -21,12 +20,11 @@
 								cell.width="50";
 								cell.height="50";
 								cell["id"]="".concat(i,j);
-								if((j+colorCount)%2 == 0){
+								if((j+i)%2 == 0){
 								   cell.bgColor="000000";
 								}
 
 							}
-						colorCount++;
 
 						}
 						document.body.appendChild(element);
