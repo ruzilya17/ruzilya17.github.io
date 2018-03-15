@@ -6,16 +6,18 @@
 	
 <body>
 	<textarea rows="20" cols="20" id="numbers"></textarea>
-	<input type="button" onclick="getRandomNumbers(numbersArray)" value="Получить случайные числа">
+	<input type="button" onclick="getRandomNumbers()" value="Получить случайные числа">
 	
 	<script>
-	var numbersArray=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-		function getRandomNumbers(numbersArray){
+		function getRandomNumbers(){
 		var ta;
-		for(var i = 0; i < 10; i++) {
 		ta=document.getElementById("numbers"); 
 		ta.innerHTML="";
-		ta.innerHTML=numbersArray[Math.floor(Math.random()*numbersArray.length) + " ,"];
+		for(var i = 0; i < 20; i++) {
+			if(i!=0){
+				ta.innerHTML=ta.innerHTML+ ", ";
+			}
+			ta.innerHTML=ta.innerHTML+ (Math.floor(Math.random()*100));
 		}
 		}
 	</script>
