@@ -9,17 +9,25 @@
 	<input type="button" onclick="getRandomNumbers()" value="Получить случайные числа">
 	
 	<script>
+	function generateNumbers(n){
+		var resultArray=[];
+		for ( i=0; i<n; i++){
+			resultArray.push(getRandomNumbers());
+		}
+		return resultArray;
+		}
 		function getRandomNumbers(){
 		var ta;
 		ta=document.getElementById("numbers"); 
 		ta.innerHTML="";
-		for(var i = 0; i < 20; i++) {
+		for(var i = 0; i < 30; i++) {
 			if(i!=0){
 				ta.innerHTML=ta.innerHTML+ ", ";
 			}
 			ta.innerHTML=ta.innerHTML+ (Math.floor(Math.random()*100));
 		}
 		}
+		
 	</script>
 </body>
 </html>
