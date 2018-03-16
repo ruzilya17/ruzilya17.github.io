@@ -6,17 +6,26 @@
 		<body id="body">
 			<input type="button" onclick="changeCol()" value="кликни на меня">
 			<script>
-				function changeColor(){ 
-					var colorsArr=["#FF0000", "#FFA500", "#00FA9A", "#FFFFFF"];
-					for (var i=0; i<colorsArr.length; i++){
-					var randomColor=Math.random()*4;
-						randomColor=Math.floor(randomColor)
-						colorsArr[randomColor];
-					}
-					function changeCol(){
-					var colors=document.getElementById("body");
-				        colors.style.background="";
-					}
+				var colorsArr=["#FF0000", "#FFA500", "#00FA9A", "#FFFFFF"];
+				
+				function getRandomColor(colorsArr){ 	
+					var randomIndex=Math.random()*(colorsArr.length);
+					randomIndex=Math.floor(randomIndex)
+					var randomColor = colorsArr[randomIndex];
+					return randomColor;
+				}
+				
+				function changeCol(){
+					var bodyElement=document.getElementById("body");
+					var color = getRandomColor(colorsArr);
+			        bodyElement.style.background=color;
+				}
+				
+				function getRandomColor2(){ 	
+					var randomIndex=Math.random()* 0xFFFFFF;
+					randomIndex=Math.floor(randomIndex);
+					return randomColor;
+				}
 			</script>
 		</body>
 </html>
