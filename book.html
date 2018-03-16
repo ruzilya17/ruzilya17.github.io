@@ -3,12 +3,13 @@
 	<meta charset="UTF-8">
 	<title>шахматная доска</title>
 	</head>
-		<body>
-			
+		<body id="body">
+			<input type="button" value="Кликни на меня">
 			<script>
-				var timesToSayHello=3;
-				for(var i=0; i<timesToSayHello; i++){
-					alert('Привет');
+				function changeColor(){
+					var colors=document.getElementById("body");
+					colors.innerHTML=("");
+					colors.style.background="red";
 				}
 			</script>
 		</body>
