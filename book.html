@@ -4,11 +4,10 @@
 	<title>шахматная доска</title>
 	</head>
 		<body id="body">
+			<input type="button" onclick="changeColor()" value="кликни на меня">
 			<script>
-				<input type="button" onclick="changeColor()" value="кликни на меня">
 				function changeColor(){
 					var colors=document.getElementById("body");
-					innerHTML="";
 					colors.style.background="red";
 					
 				}
