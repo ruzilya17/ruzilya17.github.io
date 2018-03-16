@@ -3,11 +3,12 @@
 	<meta charset="UTF-8">
 	<title>шахматная доска</title>
 	</head>
-		<body id="body" onclick="changeColor()">
+		<body id="body">
 			<script>
+				<input type="button" onclick="changeColor()" value="кликни на меня">
 				function changeColor(){
 					var colors=document.getElementById("body");
-					colors.innerHTML=("");
+					
 					colors.style.background="red";
 					
 				}
