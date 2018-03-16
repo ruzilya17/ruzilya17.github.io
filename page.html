@@ -10,22 +10,20 @@
 	
 	<script>
 	function generateNumbers(n){
-		var resultArray=[];
-		for ( i=0; i<n; i++){
-			resultArray.push(getRandomNumbers());
+		var resultArray=[];// создали пустой массив
+		for ( i=0; i<n; i++){ // сколько раз будем повторять в данном случае n раз
+		var randomNumber=Math.random()*100; // получение случайного числа
+		randomNumber=Math.floor(randomNumber);// полученное число округляем
+		resultArray.push(randomNumber);// полученное число добавляем в массив
 		}
-		return resultArray;
+		return resultArray; // возвращаем массив
 		}
 		function getRandomNumbers(){
-		var ta;
-		ta=document.getElementById("numbers"); 
-		ta.innerHTML="";
-		for(var i = 0; i < 30; i++) {
-			if(i!=0){
-				ta.innerHTML=ta.innerHTML+ ", ";
-			}
-			ta.innerHTML=ta.innerHTML+ (Math.floor(Math.random()*100));
-		}
+		var ta; 
+		ta=document.getElementById("numbers"); // получаем ссылку для textarea
+		ta.innerHTML="";// удалили данные 
+		var arr=generateNumbers(30);// получаем массив из 30 случайных чисел
+		ta.innerHTML=arr.join(","); // записываем в виде строки в textarea
 		}
 		
 	</script>
