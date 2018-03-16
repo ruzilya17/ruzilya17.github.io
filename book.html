@@ -6,12 +6,13 @@
 		<body id="body">
 			<input type="button" onclick="changeColor()" value="кликни на меня">
 			<script>
-				var colArr=["#FF0000", "#FFA500", "#00FA9A", "#FFFFFF"];
-				function changeColor(colArr){ 
-					var colors;
-					for (var i=0; i<colArr.length; i++){
-					colors=document.getElementById("body");
-					colors.style.background="colArr[i]";
+				function changeColor(){ 
+					var colors=document.getElementById("body");
+					if (colors.style.background){
+					colors.style.background="";
+				}
+					else{
+					colors.style.background="red";
 					}
 				}
 			</script>
