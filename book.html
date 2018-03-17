@@ -6,26 +6,27 @@
 		<body id="body">
 			<input type="button" onclick="changeCol()" value="кликни на меня">
 			<script>
-				var colorsArr=["#FF0000", "#FFA500", "#00FA9A", "#FFFFFF"];
-				
-				function getRandomColor(colorsArr){ 	
-					var randomIndex=Math.random()*(colorsArr.length);
-					randomIndex=Math.floor(randomIndex)
-					var randomColor = colorsArr[randomIndex];
-					return randomColor;
+				function fibo(n){
+					var result=0;
+					if(n==0){
+						result=0;
+					}else if(n==1){
+						result=1;
+					}
+					var n0=0;
+					var n1=1;
+					
+					for( var i=1; i<n; i++){
+						result=n0+n1;
+						n0=n1;
+						n1=result;
+					}
+					return result;
 				}
-				
-				function changeCol(){
-					var bodyElement=document.getElementById("body");
-					var color = getRandomColor(colorsArr);
-			        bodyElement.style.background=color;
-				}
-				
-				function getRandomColor2(){ 	
-					var randomIndex=Math.random()* 0xFFFFFF;
-					randomIndex=Math.floor(randomIndex);
-					return randomColor;
-				}
+				/*Самовызываемая функция*/
+				(function (){
+					console.log(fibo(10));
+				}());
 			</script>
 		</body>
 </html>
