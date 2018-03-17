@@ -4,19 +4,8 @@
 	<title>шахматная доска</title>
 	</head>
 		<body>
-			
+			<input type="button" onClick="drawTable()" value="Создать доску">
 			<script>
-<<<<<<< HEAD
-				var name=prompt('Как вас зовут?', '');
-				if(name==='Рузиля'){
-					alert('Привет, мне!');
-				}else if(name==='Рамазан'){
-					alert('Привет Рамазан');
-				}else if(name==='Гульнур'){
-					alert('Привет, Гульнур');
-				}else{
-					alert('Привет, незнакомец');
-=======
 				function drawTable(){
 					var element = document.getElementById("tab");
 					if(element == null){
@@ -43,7 +32,6 @@
 						document.body.appendChild(element);
 					}
 
->>>>>>> 1ecdabab18410523fd00c397cea0559afb0d5d47
 				}
 				function onClickCell(event){
 					alert(event.target.id);
