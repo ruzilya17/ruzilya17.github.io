@@ -9,13 +9,14 @@
 				var animals=['Кот', 'Рыба', 'Лемур', 'Комодский варан'];
 				function makeAnimals(animals){
 					var resultAnimals=[]; // создали пустой массив
-					for (var i=0; i<animals.length; i++){
-						animals[i]=animals[i] + "- прекрасное животное "; // делаем животное прекрасным 
-						resultAnimals.push(animals[i]); 
-					}
+					if(animals==null){
+						for (var i=0; i<animals.length; i++){
+							animals[i]=animals[i] + "- прекрасное животное "; // делаем животное прекрасным 
+							resultAnimals.push(animals[i]); 
+						}
 
 					return resultAnimals;
-										
+					}					
 				
 				}
 
