@@ -7,16 +7,25 @@
 			<input type="button" onclick="alert(getHackerLanguage(input))" value="Получить случайную букву">
 			<script>
 				var input="javascript is awesome";
-				function getHackerLanguage(input){
-					var output="";
-					for (var i=0; i<input.length; i++){
-						var temp=input[i];
-						if(temp=="a"){
-							temp="4";
+				function getHackerLanguage(inputStroka){
+					var outputStroka="";
+					for (var i=0; i<inputStroka.length; i++){
+						var tekuchayaBukva=inputStroka[i];
+						if(tekuchayaBukva=="a"){
+							tekuchayaBukva="4";
 						}
-						output+=temp[i];
+						if(tekuchayaBukva=="e"){
+							tekuchayaBukva="3";
+						}
+						if(tekuchayaBukva=="i"){
+							tekuchayaBukva="1";
+						}
+						if(tekuchayaBukva=="o"){
+							tekuchayaBukva="0";
+						}
+						outputStroka+=tekuchayaBukva;
 					}
-					return temp
+					return outputStroka;
 				}
 			</script>
 		</body>
