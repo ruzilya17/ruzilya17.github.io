@@ -4,17 +4,18 @@
 	<title>шахматная доска</title>
 	</head>
 		<body id="body">
-			<input type="button" onclick=" makeAnimals(animals)" value="Сделать животных прекрасными">
+			<input type="button" onclick="makeAnimals(animals)" value="Сделать животных прекрасными">
 			<script>
 				var animals=['Кот', 'Рыба', 'Лемур', 'Комодский варан'];
 				function makeAnimals(animals){
-				
+					var resultAnimals=[];
 					for (var i=0; i<animals.length; i++){
-					animals[i]=animals[i]+ '- прекрасное животное';
+						var animals[i]=animals[i]+ '- прекрасное животное';
+						resultAnimals.push(animals[i]);
 					}
-					return animals;
+					return resultAnimals;
 										
-				alert(animals);
+				alert(makeAnimals(animals));
 				}
 
 					
