@@ -4,15 +4,17 @@
 	<title>шахматная доска</title>
 	</head>
 		<body id="body">
-			<input type="button" onclick="createTrafficLight()" value="Создать светофор">
+			<input type="button" onclick=" makeAnimals(animals)" value="Сделать животных прекрасными">
 			<script>
 				var animals=['Кот', 'Рыба', 'Лемур', 'Комодский варан'];
+				function makeAnimals(animals){
 				
-				for (var i=0; i<animals.length; i++){
+					for (var i=0; i<animals.length; i++){
 					animals[i]=animals[i]+ '- прекрасное животное';
-	
-					
+					}
+					return animals;
 				}
+					
 				alert(animals);
 					
 			</script>
