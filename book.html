@@ -6,59 +6,9 @@
 		<body id="body">
 			<input type="button" onclick="createTrafficLight()" value="Создать светофор">
 			<script>
-				var redT=3;
-				var yellowT=2;
-				var greenT=5;
-				var timerId;
-				var count=0;
-				
-				function createTrafficLight(){
-				var element=document.getElementById('traffic'); //извлекаю из html элемент с id 
-				
-				if(element==null){ // если такого элемента не было то создаем 
-					element=document.createElement('table');
-					element.setAttribute('border', '1');
-					element.setAttribute('id', 'traffic');
-					for (var i=0; i<1; i++){
-						var row=element.insertRow(i)
-						for (var j=0; j<3; j++){
-							var cell=row.insertCell(j)			
-							cell.width='40';
-							cell.height='40';
-							cell['id']='' .concat(i,j);
-						}
-					}
-					document.body.appendChild(element);// вставляем созданный элемент в body
-					changeColor();
-				}else{// если элемент уже был то удаляем
-					clearInterval(timerId);
-					element.remove();
-					
-				}
-				
-				}
-			
-				
-				function changeColor(){
-					timerId = setInterval( colorManager ,1000);
-				
-				}
-				
-				function colorManager(){
-					count++;
-					var t=count%(redT+yellowT+greenT);
-					if(t<=redT){
-						document.getElementById('00').style.backgroundColor='red';
-						document.getElementById('02').style.backgroundColor='white';
-					}
-					else if(t<=redT+yellowT){
-						document.getElementById('01').style.backgroundColor='yellow';
-						
-					}else if(t<=redT+yellowT+greenT){
-						document.getElementById('02').style.backgroundColor='green';
-						document.getElementById('01').style.backgroundColor='white';
-						document.getElementById('00').style.backgroundColor='white';
-					}
+				var animals=['фламинго', 'лев', 'медведь', 'лиса'];
+				for ( i=0; i<animals.length; i++){
+					alert('В этом зопарке ' + animals[i] + '.');
 				}
 			</script>
 		</body>
