@@ -4,19 +4,20 @@
 	<title>шахматная доска</title>
 	</head>
 		<body id="body">
-			<input type="button" onclick="alert(getRandomLetter(alphabet))" value="Получить случайную букву">
+			<input type="button" onclick="alert(getHackerLanguage(input))" value="Получить случайную букву">
 			<script>
-				var alphabet="абвгдеежзийклмнопрстуфхцчшщъыьэюя";
-				function getRandomLetter(alphabet){
-					var randomString="";
-					while(randomString.length<6){
-						var random=Math.random()*alphabet.length;
-						random=Math.floor(random); //получила целое случайное число
-						randomString+=alphabet[random];
+				var input="javascript is awesome";
+				function getHackerLanguage(input){
+					var output="";
+					for (var i=0; i<input.length; i++){
+						var temp=input[i];
+						if(temp=="a"){
+							temp="4";
+						}
+						output+=temp[i];
 					}
-					return randomString;
+					return temp
 				}
-					
 			</script>
 		</body>
 </html>
