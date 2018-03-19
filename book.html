@@ -9,12 +9,10 @@
 				var alphabet="абвгдеежзийклмнопрстуфхцчшщъыьэюя";
 				function getRandomLetter(alphabet){
 					var randomString="";
-					randomString=0;
-					while(randomString<6){
-						var randomLetter=Math.random()*alphabet.length;
-						randomLetter=Math.floor(randomLetter);
-						randomString+=randomLetter;
-						randomString++;
+					while(randomString.length<6){
+						var random=Math.random()*alphabet.length;
+						random=Math.floor(random); //получила целое случайное число
+						randomString+=alphabet[random];
 					}
 					return randomString;
 				}
