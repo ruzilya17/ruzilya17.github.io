@@ -10,13 +10,14 @@
 				function makeAnimals(animals){
 					
 					var resultAnimals=[]; // создали пустой массив
+					if(resultAnimals==null){
 						for (var i=0; i<animals.length; i++){
 							animals[i]=animals[i] + "- прекрасное животное "; // делаем животное прекрасным 
 							resultAnimals.push(animals[i]); 
 						}
 					
 					return resultAnimals;
-					resultAnimals.splice(0,animals.length);
+					}
 					}					
 				
 
