@@ -4,23 +4,20 @@
 	<title>шахматная доска</title>
 	</head>
 		<body id="body">
-			<input type="button" onclick="alert(makeAnimals(animals))" value="Сделать животных прекрасными">
+			<input type="button" onclick="alert(getRandomLetter(alphabet))" value="Сделать животных прекрасными">
 			<script>
-				var animals=['Кот', 'Рыба', 'Лемур', 'Комодский варан'];
-				function makeAnimals(animals){
-					
-					var resultAnimals=[]; // создали пустой массив
-					
-						for (var i=0; i<animals.length; i++){
-							var animal=animals[i] + "- прекрасное животное "; // делаем животное прекрасным 
-							resultAnimals.push(animal); 
-						}
-					
-					return resultAnimals;
+				var alphabet="абвгдеежзийклмнопрстуфхцчшщъыьэюя";
+				function getRandomLetter(alphabet){
+					var randomString="";
+					randomString=0;
+					while(randomString<6){
+						var randomLetter=Math.random()*alphabet.length;
+						randomLetter=Math.floor(randomLetter);
+						randomString+=randomLetter;
+						randomString++;
 					}
-							
-				
-
+					return randomString;
+				}
 					
 			</script>
 		</body>
