@@ -10,7 +10,8 @@
 				var result=[];
 				for (var i=0; i<animals.length; i++){
 					animals[i]=animals[i]+ '- прекрасное животное';
-					result.push(animals[i].join(''));
+					result.push(animals[i]);
+					return result.join(' ');
 					alert(result);
 					
 				}
