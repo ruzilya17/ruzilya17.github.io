@@ -5,31 +5,80 @@
 	</head>
 	
 <body>
-	<textarea rows="20" cols="20" id="numbers"></textarea>
-	<input type="button" onclick="getRandomNumbers()" value="Получить случайные числа">
-	
+	 <input type="button" onclick="createNewGame()" value="Новая игра">
+      <div>
+            <p id="tablo">&nbsp</p>
+      </div>
+      <input type="text" id="bukva"><input type="button" onclick="checkHandler()" value="Попробовать угадать букву">
+      <div>
+            <p id="message"></p>
+      </div>
 	<script>
-	function generateNumbers(n){
-		var resultArray=[];// создали пустой массив
-		for ( i=0; i<n; i++){ // сколько раз будем повторять в данном случае n раз
-		var randomNumber=Math.random()*100; // получение случайного числа
-		randomNumber=Math.floor(randomNumber);// полученное число округляем
-		resultArray.push(randomNumber);// полученное число добавляем в массив
+/* Массив слов. Для игры будем брать случайное слово из массива*/
+var massivSlov=["рыба", "машина", "треугольник", "медведь"];
+
+
+/* Функция возвращает случайное слово из переданного ей массива*/
+function getRandomWord(arr){
+	var random=Math.random()*arr.length;
+	random=Math.floor(random);
+	return arr[random];
+}
+
+/* Хранинм текущее слово игры*/
+var slovo=getRandomWord(massivSlov);
+
+
+/*Возвращает маскированное слово ---- */
+function getMaskedWord(s){
+	var maskedS=[];
+  for (var i=0; i<s.length; i++){
+  	maskedS[i]="-";
+  }
+  return maskedS.join('');
+}
+
+/*Маскированное слово с учетом отгаданных букв*/
+var mSlovo=getMaskedWord(slovo);
+
+/*Обработчик кнопки новой игры*/
+function createNewGame(){
+	slovo=getRandomWord(massivSlov);
+    mSlovo=getMaskedWord(slovo);
+    document.getElementById('tablo').innerHTML="";
+    document.getElementById('tablo').innerHTML=mSlovo;
+    document.getElementById('message').innerHTML="";
+}
+
+/*  Обработчик кнопки угадать букву */
+function popytka(x, sslovo, maskedSlovo){
+	var resultArray = maskedSlovo.split('');// преобразуем маскированную строку в массив --------
+	for(var i=0; i<sslovo.length; i++){//перебираем по буквам наше слово
+		if(x===sslovo[i]){
+			resultArray[i]=sslovo[i];  //если такая буква есть то перезаписываем соответствующий элемент в resultArray
 		}
-		return resultArray; // возвращаем массив
-		}
-		function getRandomNumbers(){
-		var ta; 
-		ta=document.getElementById("numbers"); // получаем ссылку для textarea
-		ta.innerHTML="";// удалили данные 
-		var arr=generateNumbers(30);// получаем массив из 30 случайных чисел
-		ta.innerHTML=arr.join(","); // записываем в виде строки в textarea
-		}
+	}
+	return resultArray.join('');//делаем из массива строку и возвращаем
+}
+
+function checkHandler(){
+	var s = document.getElementById('bukva').value; // достанем букву из input 
+	document.getElementById('bukva').value="";
+	var maskedSlovo = document.getElementById('tablo').innerHTML;
+	var name = popytka(s, slovo, maskedSlovo);
+	document.getElementById('tablo').innerHTML=name;
+	document.getElementById('message').innerHTML="";
+	if(s.length!=1){
+		document.getElementById('message').innerHTML="Введите только одну букву";
+	} else if(maskedSlovo===name){
+		document.getElementById('message').innerHTML="Такой буквы нету в данном слове";
+	}
+	if(slovo===name){
+		document.getElementById('message').innerHTML="Победа";
+	}
+}
 		
 	</script>
 </body>
-<<<<<<< HEAD
+
 </html>
-=======
-</html>
->>>>>>> 1ecdabab18410523fd00c397cea0559afb0d5d47
