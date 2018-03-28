@@ -1,0 +1,33 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>шахматная доска</title>
+</head>
+<body>
+	<input type="button" onclick="alert(sravnitMassiv(arr, array))" value="Нажми">
+	<p id="text"> &nbsp </p>
+	<script>
+		
+		var arr = [ 1, 2, 3 ];
+		var array = [ 1, 2, 3];
+
+		function sravnitMassiv(arr1, arr2){
+				document.getElementById("text").innerHTML="";
+				if(arr1.length!=arr2.length){
+					document.getElementById("text").innerHTML="Массивы разной длины";
+					return false;
+
+				}else{
+					for ( var i = 0; i < arr1.length; i++){
+						if(arr1[i]!=arr2[i]){
+							document.getElementById("text").innerHTML="Массивы Массивы не совпадают";
+							return false;
+						}
+					}
+				}
+				return true;
+		}
+	
+	</script>
+</body>
+</html>
