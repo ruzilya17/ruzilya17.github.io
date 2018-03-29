@@ -4,15 +4,26 @@
 	<title>шахматная доска</title>
 </head>
 <body>
-	<input type="button" onclick="alert(sravnitMassiv(arr, array))" value="Нажми">
+	<input type="text" id="text1">
+	<br>
+	<br>
+	<input type="text" id="text2">
+	<input type="button" onclick="console.log(novyaF())" value="Нажми">
 	<p id="text"> &nbsp </p>
 	<script>
 		
-		var arr = [ 1, 2, 3 ];
-		var array = [ 1, 2, 3];
-
-		function sravnitMassiv(arr1, arr2){
-				document.getElementById("text").innerHTML="";
+		function polushitMassiv(idElementa){
+			var text=document.getElementById(idElementa).value;			// в текущем документу нашли документ  с идентефикатором text1
+			document.getElementById(idElementa).value="";	
+			var array = text.split(' ');
+			return array;
+		}	
+		
+		// Обработчик кнопки
+		function novyaF(){
+			var arr1=polushitMassiv("text1");
+			var arr2=polushitMassiv("text2");
+			document.getElementById("text").innerHTML="";
 				if(arr1.length!=arr2.length){
 					document.getElementById("text").innerHTML="Массивы разной длины";
 					return false;
@@ -26,7 +37,9 @@
 					}
 				}
 				return true;
+			
 		}
+	
 	
 	</script>
 </body>
