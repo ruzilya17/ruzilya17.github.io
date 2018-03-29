@@ -1,0 +1,40 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>шахматная доска</title>
+</head>
+<body>
+	<p>Длина прямоугольника:<input type="text" id="text1"></p>
+	<p>Ширина прямоугольника:<input type="text2" id="text2"></p><br>
+	<input type="button" onclick="polushitArea()" value="Вычислить"><br>
+	<p>Площадь прямоугольника: </p>
+	<p id="num"> </p>
+	<script>
+	/*
+	Эта функция возвращает возвращает содержимое input  в виде числа
+	*/
+		function getData(idElement){ 
+			var element=document.getElementById(idElement).value;
+			//document.getElementById(idElement).value="";
+			var elem=Number(element);
+			return elem;
+			
+			
+		}
+ /* эта функция возвращает площадь прямоугольника*/
+		function areaPrimaugolnic(a, b){
+			var s=a*b;
+			return s;
+		}
+		
+				//Обрвботчик кнопки
+		function polushitArea(){
+			document.getElementById("num").innerHTML="";// стирает предыдущий ответ
+			var a=getData("text1");
+			var b=getData("text2");
+			var area=areaPrimaugolnic(a, b);
+			document.getElementById("num").innerHTML=area;// выводим ответ
+		}
+	</script>
+</body>
+</html>
