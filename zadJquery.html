@@ -1,0 +1,20 @@
+<html>
+  <head>
+	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+	<meta charset="UTF-8">
+	<title>DOM</title>
+  </head>
+  <body>
+    <h1 id="main-heading">
+    Привет, мир!
+  
+
+	<script>
+	var handler=function(event){
+		console.log("Клик " + event.pageX + " " + event.pageY);
+	}
+	$("body").click(handler);
+		
+	</script>
+  </body>
+</html>
