@@ -10,10 +10,13 @@
   
 
 	<script>
-	var handler=function(event){
-		console.log("Клик " + event.pageX + " " + event.pageY);
-	}
-	$("body").click(handler);
+	$("html").mousemove(function(event){
+	$("#main-heading").offset({
+	left: event.pageX,
+	top: event.pageY
+	});
+	});
+	$("#main-heading").click;
 		
 	</script>
   </body>
