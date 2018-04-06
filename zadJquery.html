@@ -9,13 +9,70 @@
 	<script>
 		var canvas = document.getElementById("canvas");
 		var ctx = canvas.getContext("2d");
-		ctx.fillStyle="Red";
-		ctx.fillRect(0, 0, 50, 100);
-		ctx.fillStyle="Green";
-		ctx.fillRect(50, 0, 50, 100);
-		ctx.fillStyle="Blue";
-		ctx.fillRect(100, 0, 50, 100);
-		
+		ctx.fillRect(43, 15, 5, 5);
+		ctx.fillRect(52, 15, 5, 5);
+		ctx.fillStyle="red";
+		ctx.fillRect(45, 22, 10, 3);
+		ctx.strokeStyle="blue";
+		ctx.lineWidth=4;
+		ctx.beginPath();
+		ctx.strokeRect(40, 10, 20, 20);
+		ctx.moveTo(50, 30);
+		ctx.lineTo(50, 80);
+		ctx.moveTo(50, 60);
+		ctx.lineTo(30, 40);
+		ctx.moveTo(50, 60);
+		ctx.lineTo(70, 40);
+		ctx.moveTo(50, 80);
+		ctx.lineTo(30, 110);
+		ctx.moveTo(50, 80);
+		ctx.lineTo(70, 110);
+		ctx.stroke();
+		var circle=function(x, y, radius){
+			ctx.beginPath();
+		ctx.arc(x, y, radius, 0, Math.PI*2, true);
+		ctx.stroke();
+		}
+		ctx.lineWidth=2;
+		ctx.strokeStyle="yellow";
+		ctx.fillStyle="yellow";
+		circle(100, 30, 5);
+		ctx.fill();
+		ctx.lineWidth=2;
+		ctx.strokeStyle="red";
+		ctx.fillStyle="red";
+		circle(92, 21, 5);
+		ctx.fill();
+		ctx.lineWidth=2;
+		ctx.strokeStyle="red";
+		ctx.fillStyle="red";
+		circle(88, 32, 5);
+		ctx.fill();
+		ctx.lineWidth=2;
+		ctx.strokeStyle="red";
+		ctx.fillStyle="red";
+		circle(95, 40, 5);
+		ctx.fill();
+		ctx.lineWidth=2;
+		ctx.strokeStyle="red";
+		ctx.fillStyle="red";
+		circle(105, 40, 5);
+		ctx.fill();
+		ctx.lineWidth=2;
+		ctx.strokeStyle="red";
+		ctx.fillStyle="red";
+		circle(111, 31, 5);
+		ctx.fill();
+		ctx.lineWidth=2;
+		ctx.strokeStyle="red";
+		ctx.fillStyle="red";
+		circle(104, 21, 5);
+		ctx.fill();
+		ctx.strokeStyle="green";
+		ctx.beginPath();
+		ctx.moveTo(85, 35);
+		ctx.lineTo(10, 90);
+		ctx.stroke();
 	</script>
   </body>
 </html>
