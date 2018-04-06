@@ -5,18 +5,18 @@
 	<title>DOM</title>
   </head>
   <body>
-    <h1 id="main-heading">
-    Привет, мир!
-  
-
+	<canvas id = "canvas" width="400" height="400"> </canvas>
 	<script>
-	$("html").mousemove(function(event){
-	$("#main-heading").offset({
-	left: event.pageX,
-	top: event.pageY
-	});
-	});
-	$("#main-heading").click;
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+			ctx.fillRect(50, 10, 50, 50);
+			ctx.fillRect(70, 60, 10, 20);
+			ctx.fillRect(70, 80, 60, 10);
+			ctx.fillRect(20, 80, 60, 10);
+			ctx.fillRect(40, 90, 70, 70);
+			ctx.fillRect(50, 160, 10, 20);
+			ctx.fillRect(90, 160, 10, 20);
+			
 		
 	</script>
   </body>
