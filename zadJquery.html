@@ -1,4 +1,4 @@
-<html>
+{<html>
   <head>
 	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 	<meta charset="UTF-8">
@@ -9,70 +9,26 @@
 	<script>
 		var canvas = document.getElementById("canvas");
 		var ctx = canvas.getContext("2d");
-		ctx.fillRect(43, 15, 5, 5);
-		ctx.fillRect(52, 15, 5, 5);
-		ctx.fillStyle="red";
-		ctx.fillRect(45, 22, 10, 3);
-		ctx.strokeStyle="blue";
-		ctx.lineWidth=4;
-		ctx.beginPath();
-		ctx.strokeRect(40, 10, 20, 20);
-		ctx.moveTo(50, 30);
-		ctx.lineTo(50, 80);
-		ctx.moveTo(50, 60);
-		ctx.lineTo(30, 40);
-		ctx.moveTo(50, 60);
-		ctx.lineTo(70, 40);
-		ctx.moveTo(50, 80);
-		ctx.lineTo(30, 110);
-		ctx.moveTo(50, 80);
-		ctx.lineTo(70, 110);
-		ctx.stroke();
-		var circle=function(x, y, radius){
+		var circle = function(x, y, radius, fillCircle, color){
 			ctx.beginPath();
-		ctx.arc(x, y, radius, 0, Math.PI*2, true);
-		ctx.stroke();
+			ctx.arc(x, y, radius, 0, Math.PI*2, false);
+			ctx.stroke();
+			if(fillCircle===true){
+				ctx.fillStyle=color===null?"black":color;
+				ctx.fill();
+				ctx.fillStyle="black";
+				
+			}
+			
 		}
-		ctx.lineWidth=2;
-		ctx.strokeStyle="yellow";
-		ctx.fillStyle="yellow";
-		circle(100, 30, 5);
-		ctx.fill();
-		ctx.lineWidth=2;
-		ctx.strokeStyle="red";
-		ctx.fillStyle="red";
-		circle(92, 21, 5);
-		ctx.fill();
-		ctx.lineWidth=2;
-		ctx.strokeStyle="red";
-		ctx.fillStyle="red";
-		circle(88, 32, 5);
-		ctx.fill();
-		ctx.lineWidth=2;
-		ctx.strokeStyle="red";
-		ctx.fillStyle="red";
-		circle(95, 40, 5);
-		ctx.fill();
-		ctx.lineWidth=2;
-		ctx.strokeStyle="red";
-		ctx.fillStyle="red";
-		circle(105, 40, 5);
-		ctx.fill();
-		ctx.lineWidth=2;
-		ctx.strokeStyle="red";
-		ctx.fillStyle="red";
-		circle(111, 31, 5);
-		ctx.fill();
-		ctx.lineWidth=2;
-		ctx.strokeStyle="red";
-		ctx.fillStyle="red";
-		circle(104, 21, 5);
-		ctx.fill();
-		ctx.strokeStyle="green";
-		ctx.beginPath();
-		ctx.moveTo(85, 35);
-		ctx.lineTo(10, 90);
-		ctx.stroke();
+		circle(60, 55, 30, false);
+		circle(50, 50, 5, true);
+		circle(70, 50, 5, true);
+		circle(60, 65, 5, true, "yellow");
+		circle(60, 125, 40, false);
+		circle(60, 105, 5, true);
+		circle(60, 125, 5, true);
+		circle(60, 145, 5, true);
 	</script>
   </body>
 </html>
