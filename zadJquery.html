@@ -1,10 +1,12 @@
-{<html>
+<html>
   <head>
 	<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 	<meta charset="UTF-8">
 	<title>DOM</title>
   </head>
   <body>
+	<input type="button" onclick="drawSnowMan(50, 50)" value="Нарисовать снеговик">
+	<input type="button" onclick="clearCanvas('canvas')" value="Очистить">
 	<canvas id = "canvas" width="400" height="400"> </canvas>
 	<script>
 		var canvas = document.getElementById("canvas");
@@ -21,14 +23,21 @@
 			}
 			
 		}
-		circle(60, 55, 30, false);
-		circle(50, 50, 5, true);
-		circle(70, 50, 5, true);
-		circle(60, 65, 5, true, "yellow");
-		circle(60, 125, 40, false);
-		circle(60, 105, 5, true);
-		circle(60, 125, 5, true);
-		circle(60, 145, 5, true);
+		function drawSnowMan(x, y){
+			circle(x+60, y+55, 30, false);
+			circle(x+50, y+50, 5, true);
+			circle(x+70, y+50, 5, true);
+			circle(x+60, y+65, 5, true, "yellow");
+			circle(x+60, y+125, 40, false);
+			circle(x+60, y+105, 5, true);
+			circle(x+60, y+125, 5, true);
+			circle(x+60, y+145, 5, true);
+		}
+		function clearCanvas(canvasElementId){
+			var canvas = document.getElementById(canvasElementId);
+			var ctx = canvas.getContext("2d");
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+		}
 	</script>
   </body>
 </html>
