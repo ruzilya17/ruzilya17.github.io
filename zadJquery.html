@@ -5,39 +5,27 @@
 	<title>DOM</title>
   </head>
   <body>
-	<input type="button" onclick="drawSnowMan(50, 50)" value="Нарисовать снеговик">
-	<input type="button" onclick="clearCanvas('canvas')" value="Очистить">
+	<input type="button" onclick="obrabotka()" value="Нарисовать линию">
 	<canvas id = "canvas" width="400" height="400"> </canvas>
 	<script>
 		var canvas = document.getElementById("canvas");
 		var ctx = canvas.getContext("2d");
-		var circle = function(x, y, radius, fillCircle, color){
+		var points=[[50, 50], [50, 100], [100, 100,], [100, 50], [50, 50], [75, 100], [100, 50]];
+		function drawPoints(array){
 			ctx.beginPath();
-			ctx.arc(x, y, radius, 0, Math.PI*2, false);
-			ctx.stroke();
-			if(fillCircle===true){
-				ctx.fillStyle=color===null?"black":color;
-				ctx.fill();
-				ctx.fillStyle="black";
+			for (var i=1; i<array.length; i++){
+				var toshkaA=array[i-1];
+				var toshkaB=array[i];
+				ctx.moveTo(toshkaA[0], toshkaA[1]);
+				ctx.lineTo(toshkaB[0], toshkaB[1]);
 				
 			}
-			
+			ctx.stroke();
 		}
-		function drawSnowMan(x, y){
-			circle(x+60, y+55, 30, false);
-			circle(x+50, y+50, 5, true);
-			circle(x+70, y+50, 5, true);
-			circle(x+60, y+65, 5, true, "yellow");
-			circle(x+60, y+125, 40, false);
-			circle(x+60, y+105, 5, true);
-			circle(x+60, y+125, 5, true);
-			circle(x+60, y+145, 5, true);
+		
+		function obrabotka(){
+			var knopka=drawPoints(points);
 		}
-		function clearCanvas(canvasElementId){
-			var canvas = document.getElementById(canvasElementId);
-			var ctx = canvas.getContext("2d");
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
-		}
-	</script>
+		</script>
   </body>
 </html>
