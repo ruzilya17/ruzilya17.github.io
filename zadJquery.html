@@ -5,27 +5,69 @@
 	<title>DOM</title>
   </head>
   <body>
-	<input type="button" onclick="obrabotka()" value="Нарисовать линию">
-	<canvas id = "canvas" width="400" height="400"> </canvas>
+	<input type="button" onclick=" knopka()" value="Нажмите">
+	<input type="button" onclick="clearCanvas('canvas')" value="Очистить">
+	<canvas id = "canvas" width="600" height="600"> </canvas>
 	<script>
-		var canvas = document.getElementById("canvas");
-		var ctx = canvas.getContext("2d");
-		var points=[[50, 50], [50, 100], [100, 100,], [100, 50], [50, 50], [75, 100], [100, 50]];
-		function drawPoints(array){
+		 var canvas=document.getElementById("canvas");
+		 var ctx=canvas.getContext("2d");
+		 var width=canvas.width;
+		 var height=canvas.height;
+		 
+		 function selfRandom(min, max){
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+         }
+	/*создаем конструктор для мяча*/
+		var Ball=function(){
+			this.x=selfRandom(10, width-10);//наяальная позиция мяча
+			this.y=selfRandom(10, height-10);
+			this.xSpeed= -5;// горизонталная скорость для смещения, на 2 пикселя будет смещатся влево
+			this.ySpeed= 5;// вниз будет смещаться
+
+		}
+		/* рисуем мяч*/
+		var circle=function(x, y, radius, fillCircle){
 			ctx.beginPath();
-			for (var i=1; i<array.length; i++){
-				var toshkaA=array[i-1];
-				var toshkaB=array[i];
-				ctx.moveTo(toshkaA[0], toshkaA[1]);
-				ctx.lineTo(toshkaB[0], toshkaB[1]);
-				
+			ctx.arc(x, y, radius, 0, Math.PI*2, false);
+			if(fillCircle){
+				ctx.fill();
+			}else{
+				ctx.stroke();
 			}
-			ctx.stroke();
+		};
+		Ball.prototype.draw=function(){
+			circle(this.x, this.y, 10, true);
 		}
+		Ball.prototype.move=function(){
+			this.x += this.xSpeed;
+			this.y += this.ySpeed;
+			
+		};
+		Ball.prototype.checkColision=function(){
+				if(this.x<0 || this.x>width){
+					this.xSpeed = -this.xSpeed;
+				}
+				if(this.y<0 || this.y>height){
+					this.ySpeed = -this.ySpeed;
+				}
+		};
 		
-		function obrabotka(){
-			var knopka=drawPoints(points);
-		}
+		
+			var ball = new Ball();
+				var balls=[];
+				for (var i=0; i<10; i++){
+				balls.push(new Ball());
+				}
+			setInterval(function(){
+				ctx.clearRect(0, 0, width, height);
+				for (var i=0; i<balls.length; i++){
+					balls[i].draw();
+					balls[i].move();
+					balls[i].checkColision();
+				}
+				ctx.strokeRect(0, 0, width, height);
+			}, 30);
+		
 		</script>
   </body>
 </html>
