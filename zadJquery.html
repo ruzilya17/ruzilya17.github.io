@@ -17,15 +17,20 @@
 		 function selfRandom(min, max){
 			return Math.floor(Math.random() * (max - min + 1)) + min;
          }
+		 var colors=["Red", "yellow", "blue"];
 	/*создаем конструктор для мяча*/
-		var Ball=function(){
+		var Ball=function(color){
 			this.x=selfRandom(10, width-10);//наяальная позиция мяча
 			this.y=selfRandom(10, height-10);
 			this.xSpeed= -5;// горизонталная скорость для смещения, на 2 пикселя будет смещатся влево
 			this.ySpeed= 5;// вниз будет смещаться
-
+			this.ballColor=color;
 		}
-		/* рисуем мяч*/
+		function colorsRandom(colors){
+				var random=Math.random()*colors.length;
+				random = Math.floor(random);
+				return colors[random];
+		}
 		var circle=function(x, y, radius, fillCircle){
 			ctx.beginPath();
 			ctx.arc(x, y, radius, 0, Math.PI*2, false);
@@ -36,7 +41,9 @@
 			}
 		};
 		Ball.prototype.draw=function(){
+			ctx.fillStyle=this.ballColor;
 			circle(this.x, this.y, 10, true);
+			
 		}
 		Ball.prototype.move=function(){
 			this.x += this.xSpeed;
@@ -52,11 +59,10 @@
 				}
 		};
 		
-		
 			var ball = new Ball();
 				var balls=[];
 				for (var i=0; i<10; i++){
-				balls.push(new Ball());
+				balls.push(new Ball(colorsRandom(colors)));
 				}
 			setInterval(function(){
 				ctx.clearRect(0, 0, width, height);
@@ -67,7 +73,7 @@
 				}
 				ctx.strokeRect(0, 0, width, height);
 			}, 30);
-		
+
 		</script>
   </body>
 </html>
