@@ -9,28 +9,10 @@
 	<input type="button" onclick="clearCanvas('canvas')" value="Очистить">
 	<canvas id = "canvas" width="600" height="600"> </canvas>
 	<script>
-		 var canvas=document.getElementById("canvas");
-		 var ctx=canvas.getContext("2d");
-		 var width=canvas.width;
-		 var height=canvas.height;
-		 
-		 function selfRandom(min, max){
-			return Math.floor(Math.random() * (max - min + 1)) + min;
-         }
-		 var colors=["Red", "yellow", "blue"];
-	/*создаем конструктор для мяча*/
-		var Ball=function(color){
-			this.x=selfRandom(10, width-10);//наяальная позиция мяча
-			this.y=selfRandom(10, height-10);
-			this.xSpeed= -5;// горизонталная скорость для смещения, на 2 пикселя будет смещатся влево
-			this.ySpeed= 5;// вниз будет смещаться
-			this.ballColor=color;
-		}
-		function colorsRandom(colors){
-				var random=Math.random()*colors.length;
-				random = Math.floor(random);
-				return colors[random];
-		}
+	var canvas=document.getElementById("canvas");
+	var ctx=canvas.getContext("2d");
+	var width=canvas.width;
+	var height=canvas.height;
 		var circle=function(x, y, radius, fillCircle){
 			ctx.beginPath();
 			ctx.arc(x, y, radius, 0, Math.PI*2, false);
@@ -39,41 +21,92 @@
 			}else{
 				ctx.stroke();
 			}
-		};
-		Ball.prototype.draw=function(){
-			ctx.fillStyle=this.ballColor;
-			circle(this.x, this.y, 10, true);
 			
-		}
-		Ball.prototype.move=function(){
-			this.x += this.xSpeed;
-			this.y += this.ySpeed;
-			
-		};
-		Ball.prototype.checkColision=function(){
-				if(this.x<0 || this.x>width){
-					this.xSpeed = -this.xSpeed;
-				}
-				if(this.y<0 || this.y>height){
-					this.ySpeed = -this.ySpeed;
-				}
 		};
 		
-			var ball = new Ball();
-				var balls=[];
-				for (var i=0; i<10; i++){
-				balls.push(new Ball(colorsRandom(colors)));
-				}
-			setInterval(function(){
-				ctx.clearRect(0, 0, width, height);
-				for (var i=0; i<balls.length; i++){
-					balls[i].draw();
-					balls[i].move();
-					balls[i].checkColision();
-				}
-				ctx.strokeRect(0, 0, width, height);
-			}, 30);
-
+	var Ball=function(){
+		this.x=width/2;
+		this.y=height/2;
+		this.xSpeed=5;
+		this.ySpeed=0;
+		this.speed=10;
+	};
+	
+	Ball.prototype.move=function(){
+		this.x += this.xSpeed;
+		this.y += this.ySpeed;
+		
+		if(this.x<0 || this.x>width ){
+			this.xSpeed= -this.xSpeed;
+		}
+		if(this.y<0 || this.y>height ){
+			this.ySpeed= -this.ySpeed;
+		}
+		
+	};
+	Ball.prototype.draw=function(){
+		circle(this.x, this.y, 10, true);
+	};
+	Ball.prototype.setDirection=function(direction){
+		if(direction==="up"){
+			console.log(this.speed);
+			this.xSpeed=0;
+			this.ySpeed=-this.speed;
+		}else if(direction==="down"){
+			console.log(this.speed);
+			this.xSpeed=0;
+			this.ySpeed=-1*-this.speed;
+		}else if(direction==="left"){
+			console.log(this.speed);
+			this.xSpeed=-this.speed;
+			this.ySpeed=0;
+		}else if(direction==="right"){
+			console.log(this.speed);
+			this.xSpeed=-1*-this.speed;
+			this.ySpeed=0;
+		}
+	};
+	Ball.prototype.setSpeed=function(speed){
+		if (speed!==undefined){
+				this.speed=speed;
+		}
+	};
+	
+	var ball=new Ball();
+	var speeds= {
+		97: "1",
+		98: "2",
+		99: "3",
+		100: "4",
+		101: "5",
+		102: "6",
+		103: "7",
+		104: "8",
+		105: "9",
+		13: "enter"
+	};
+	var keyNames= {
+		32: "Пробел",
+		37: "left",
+		38: "up",
+		39: "right",
+		40: "down"
+	};
+		 $("body").keydown(function(event){
+			var chooseSpeed=speeds[event.keyCode];
+			console.log("chooseSpeed="+chooseSpeed);
+			ball.setSpeed(chooseSpeed);
+			var direction=keyNames[event.keyCode];
+			ball.setDirection(direction);
+			
+			
+		});
+		setInterval(function(){
+			ctx.clearRect(0,0, width, height);
+			ball.draw();
+			ball.move();
+			ctx.strokeRect(0, 0, width, height);
+		}, 30);
 		</script>
   </body>
 </html>
